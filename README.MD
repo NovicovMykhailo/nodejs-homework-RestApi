@@ -1,10 +1,10 @@
 # GOIT-72 Nod js Rest  API
 ### _-- Rest Api Contacts Back end --_
 
-- **DEPLOY @**  &ensp;  [![Deployed At | ](https://i.ibb.co/zG6DGXq/render-logo-818-C47-ACCA-seeklogo-com.png)](https://nodejs-restapi-g9eb.onrender.com/api/contacts)  &ensp;   &ensp; 
+- **DEPLOYED @**  &ensp;  [![Deployed At | ](https://i.ibb.co/zG6DGXq/render-logo-818-C47-ACCA-seeklogo-com.png)](https://nodejs-restapi-g9eb.onrender.com/api/contacts)  &ensp;   &ensp; 
 
-- **SOURCE @**  &ensp; 
-[![Repository |](https://i.ibb.co/j3TLp8G/github-logo-vector.png)](https://github.com/NovicovMykhailo/nodejs-homework-RestApi.git) &ensp; &ensp; 
+<!-- - **SOURCE @**  &ensp; 
+[![Repository |](https://i.ibb.co/j3TLp8G/github-logo-vector.png)](https://github.com/NovicovMykhailo/nodejs-homework-RestApi.git) &ensp; &ensp;  -->
 
 ### Contacts REST API  connected to MongoDB 
 ![MongoDB Logo](https://i.ibb.co/Ht5xNDz/Mongo-db-logo-1.png)
