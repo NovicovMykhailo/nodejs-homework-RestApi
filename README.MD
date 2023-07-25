@@ -34,11 +34,11 @@
 | **PUT** | [/:id](https://nodejs-restapi-g9eb.onrender.com/api/contacts/:id) | Update Contact by ID | Modified Contact |
 | **PATCH** | [/:id/favorite](https://nodejs-restapi-g9eb.onrender.com/api/contacts/:id/favorite) | path to change favorite |
 | **GET** | [?page=1&limit=20](https://nodejs-restapi-g9eb.onrender.com/api/contacts?page=1&limit=20) | Pagination |
-| **GET** | [?favorite=true](https://nodejs-restapi-g9eb.onrender.com/api/contacts??favorite=true) | Pagination |
+| **GET** | [?favorite=true](https://nodejs-restapi-g9eb.onrender.com/api/contacts??favorite=true) | Contacts by favorite | True or False|
 
 ### Authentication
 
-#### for autorisation `/users`
+#### for authorisation `/users`
 
 | Method | LINK | Description | Return |
 | :-- | :-- | --: | --: |
