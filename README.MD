@@ -43,10 +43,10 @@
 | Method | LINK | Description | Return |
 | :-- | :-- | --: | --: |
 | **POST** | [/register](https://nodejs-restapi-g9eb.onrender.com/user/register) | Path to registration | user object |
-| **POST** | [/login](https://nodejs-restapi-g9eb.onrender.com/user/login) | Path to SignIn | Token |
-| **POST** | [/logout](https://nodejs-restapi-g9eb.onrender.com/user/logout) | Path to logout | Token |
-| **GET** | [/current](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path to current User Info | Token |
-| **PATCH** | [/](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path update Subscription | User Info |
+| **POST** | [/login](https://nodejs-restapi-g9eb.onrender.com/user/login) | Path to SignIn | user object + Token |
+| **POST** | [/logout](https://nodejs-restapi-g9eb.onrender.com/user/logout) | Path to logout | 
+| **GET** | [/current](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path to current User Info | User Info |
+| **PATCH** | [/](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path update Subscription | Updated user Info |
 
 ## Contact Example
 
