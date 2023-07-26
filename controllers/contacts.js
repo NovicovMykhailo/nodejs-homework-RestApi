@@ -1,12 +1,22 @@
-
 import { HttpError } from "../helpers/HttpError.js";
 import ctrlWrapper from "./ctrlWrapper.js";
 import { Contact } from "../models/contact.js";
 
 // get all contacts
 const getAll = async (req, res) => {
-  const result = await Contact.find();
-  res.status(200).json(result);
+  const { _id: owner } = req.user;
+  if (req.query.hasOwnProperty("favorite")) {
+    
+    const { favorite } = req.query;
+    const result = await Contact.find({ owner }, "-owner").where({ favorite });
+    res.status(200).json(result);
+  } else {
+    const { page = 1, limit = 10 } = req.query;
+    const skip = (page - 1) * limit;
+
+    const result = await Contact.find({ owner }, null, { skip, limit });
+    res.status(200).json(result);
+  }
 };
 
 // //get contact by id
@@ -21,7 +31,9 @@ const getById = async (req, res) => {
 
 //add contact
 const AddContact = async (req, res) => {
-  const addedContact = await Contact.create(req.body);
+  const { _id: owner } = req.user;
+
+  const addedContact = await Contact.create({ ...req.body, owner });
 
   res.status(201).json(addedContact);
 };
@@ -30,7 +42,7 @@ const AddContact = async (req, res) => {
 const modifyContact = async (req, res) => {
   const { contactId } = req.params;
 
-  const updatedContact = await Contact.findByIdAndUpdate(contactId, req.body,{new: true});
+  const updatedContact = await Contact.findByIdAndUpdate(contactId, req.body, { new: true });
   if (!updatedContact) throw HttpError(404, "Not found");
 
   res.status(200).json(updatedContact);
