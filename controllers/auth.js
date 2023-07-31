@@ -1,12 +1,11 @@
 import bcrypt from "bcryptjs";
+import gravatar from "gravatar";
+import path from "path";
 import jwt from "jsonwebtoken";
+import fs from "fs/promises";
 import { User } from "../models/user.js";
 import { HttpError } from "../helpers/HttpError.js";
 import ctrlWrapper from "./ctrlWrapper.js";
-import gravatar from "gravatar";
-import path from "path";
-import fs from "fs/promises";
-import Jimp from "jimp";
 
 const avatarDir = path.resolve("public", "avatars");
 
@@ -89,13 +88,12 @@ const getCurrent = async (req, res) => {
 const updateAvatar = async (req, res) => {
   const { _id } = req.user;
   const { path: tempUpload, originalname } = req.file;
+
   const filename = `${_id}_${originalname}`;
   const resultUpload = path.join(avatarDir, filename);
   await fs.rename(tempUpload, resultUpload);
 
   const avatarURL = path.join(avatarDir, filename);
-
-
   await User.findByIdAndUpdate(_id, { avatarURL }, { new: true });
 
   res.status(200).json({ avatarURL });
