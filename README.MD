@@ -47,6 +47,7 @@
 | **POST** | [/logout](https://nodejs-restapi-g9eb.onrender.com/user/logout) | Path to logout | Status|
 | **GET** | [/current](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path to current User Info | User Info |
 | **PATCH** | [/](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path update Subscription | Updated user Info |
+| **PATCH** | [/avatars](https://nodejs-restapi-g9eb.onrender.com/user/avatars) | Path update Avatar | Updated user Avatar |
 
 ## Contact Example
 
