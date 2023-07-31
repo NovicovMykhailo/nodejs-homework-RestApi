@@ -32,9 +32,9 @@
 | **GET** | [/:id](https://nodejs-restapi-g9eb.onrender.com/api/contacts?:id) | Path to get contact by ID | Found Contact |
 | **DELETE** | [/:id](https://nodejs-restapi-g9eb.onrender.com/api/contacts/:id) | Path to delete Contact by ID | Message |
 | **PUT** | [/:id](https://nodejs-restapi-g9eb.onrender.com/api/contacts/:id) | Update Contact by ID | Modified Contact |
-| **PATCH** | [/:id/favorite](https://nodejs-restapi-g9eb.onrender.com/api/contacts/:id/favorite) | path to change favorite | new object|
-| **GET** | [?page=1&limit=20](https://nodejs-restapi-g9eb.onrender.com/api/contacts?page=1&limit=20) | Pagination | page and contacts|
-| **GET** | [?favorite=true](https://nodejs-restapi-g9eb.onrender.com/api/contacts??favorite=true) | Contacts by favorite | True or False|
+| **PATCH** | [/:id/favorite](https://nodejs-restapi-g9eb.onrender.com/api/contacts/:id/favorite) | path to change favorite | new object |
+| **GET** | [?page=1&limit=20](https://nodejs-restapi-g9eb.onrender.com/api/contacts?page=1&limit=20) | Pagination | page and contacts |
+| **GET** | [?favorite=true](https://nodejs-restapi-g9eb.onrender.com/api/contacts??favorite=true) | Contacts by favorite | True or False |
 
 ### Authentication
 
@@ -44,11 +44,10 @@
 | :-- | :-- | --: | --: |
 | **POST** | [/register](https://nodejs-restapi-g9eb.onrender.com/user/register) | Path to registration | user object |
 | **POST** | [/login](https://nodejs-restapi-g9eb.onrender.com/user/login) | Path to SignIn | user object + Token |
-| **POST** | [/logout](https://nodejs-restapi-g9eb.onrender.com/user/logout) | Path to logout | Status|
+| **POST** | [/logout](https://nodejs-restapi-g9eb.onrender.com/user/logout) | Path to logout | Status |
 | **GET** | [/current](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path to current User Info | User Info |
-| **PATCH** | [/avatars](https://nodejs-restapi-g9eb.onrender.com/user/avatars) | Path update Avatar | Updated user Avatar |
+| **PATCH** | [/avatars](https://nodejs-restapi-g9eb.onrender.com/user/avatars) | Path to update User Avatar | Updated user Avatar |
 | **PATCH** | [/](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path update Subscription | Updated user Info |
-
 
 ## Contact Example
 
