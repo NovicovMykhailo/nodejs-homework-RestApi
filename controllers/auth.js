@@ -1,8 +1,13 @@
 import bcrypt from "bcryptjs";
+import gravatar from "gravatar";
+import path from "path";
 import jwt from "jsonwebtoken";
+import fs from "fs/promises";
 import { User } from "../models/user.js";
 import { HttpError } from "../helpers/HttpError.js";
 import ctrlWrapper from "./ctrlWrapper.js";
+
+const avatarDir = path.resolve("public", "avatars");
 
 //signup
 const register = async (req, res) => {
@@ -13,12 +18,17 @@ const register = async (req, res) => {
   }
   const hashPassword = await bcrypt.hash(password, 10);
 
-  const newUser = await User.create({ ...req.body, password: hashPassword });
+  const newUser = await User.create({
+    ...req.body,
+    password: hashPassword,
+    avatarURL: gravatar.url(email, { s: 250, d: "identicon", protocol: "https" }),
+  });
 
   res.status(201).json({
     user: {
       email: newUser.email,
       subscription: newUser.subscription,
+      avatarURL: newUser.avatarURL,
     },
   });
 };
@@ -56,7 +66,7 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
   const { _id } = req.user;
   await User.findByIdAndUpdate(_id, { token: "" });
-  res.status(204).json({})
+  res.status(204).json({});
 };
 
 // Change Subscription
@@ -74,6 +84,21 @@ const getCurrent = async (req, res) => {
   res.json({ email, subscription });
 };
 
+//Change Avatar
+const updateAvatar = async (req, res) => {
+  const { _id } = req.user;
+  const { path: tempUpload, originalname } = req.file;
+
+  const filename = `${_id}_${originalname}`;
+  const resultUpload = path.join(avatarDir, filename);
+  await fs.rename(tempUpload, resultUpload);
+
+  const avatarURL = path.join("avatars", filename);
+  await User.findByIdAndUpdate(_id, { avatarURL }, { new: true });
+
+  res.status(200).json({ avatarURL });
+};
+
 // decoration
 const ctrl = {
   register: ctrlWrapper(register),
@@ -81,6 +106,7 @@ const ctrl = {
   logout: ctrlWrapper(logout),
   getCurrent: ctrlWrapper(getCurrent),
   changeSubscription: ctrlWrapper(changeSubscription),
+  updateAvatar: ctrlWrapper(updateAvatar),
 };
 
 //export

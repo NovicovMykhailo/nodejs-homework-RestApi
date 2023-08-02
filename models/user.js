@@ -23,6 +23,7 @@ const userSchema = new Schema(
       enum: subscriptionList,
       default: "starter",
     },
+    avatarURL: { type: String, required: true },
     token: { type: String, default: "" },
   },
   { versionKey: false, timestamps: true },
@@ -40,3 +41,5 @@ export const authSchema = Joi.object({
 export const subscriptionSchema = Joi.object({
   subscription: Joi.string().valid(...subscriptionList),
 });
+
+
