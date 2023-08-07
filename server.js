@@ -4,6 +4,13 @@ import mongoose from "mongoose";
 
 dotenv.config();
 
+
+
+
+
+
+
+
 const { DB_HOST, PORT } = process.env;
 
 mongoose
