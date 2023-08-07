@@ -26,4 +26,10 @@ router.patch("/", authenticate, validateBody(subscriptionSchema), ctrl.changeSub
 // change avatar
 router.patch("/avatars", authenticate, upload.single("avatar"), resize, ctrl.updateAvatar);
 
+// send verification email
+router.post("/verify", ctrl.updateAvatar);
+
+// check verification
+router.get("/verify/:verificationToken", authenticate, ctrl.verificationRequest);
+
 export default router;

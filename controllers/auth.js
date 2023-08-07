@@ -6,6 +6,7 @@ import fs from "fs/promises";
 import { User } from "../models/user.js";
 import { HttpError } from "../helpers/HttpError.js";
 import ctrlWrapper from "./ctrlWrapper.js";
+import { nanoid } from 'nanoid'
 
 const avatarDir = path.resolve("public", "avatars");
 
@@ -22,6 +23,7 @@ const register = async (req, res) => {
     ...req.body,
     password: hashPassword,
     avatarURL: gravatar.url(email, { s: 250, d: "identicon", protocol: "https" }),
+    verificationToken: nanoid(),
   });
 
   res.status(201).json({
@@ -41,6 +43,10 @@ const login = async (req, res) => {
   const user = await User.findOne({ email });
   if (!user) {
     throw HttpError(401, "Email or password is wrong");
+  }
+  const isVerified = await User.findOne({ verify });
+  if (!isVerified) {
+    throw HttpError(401, "User not found");
   }
 
   const passwordCompare = await bcrypt.compare(password, user.password);
@@ -99,6 +105,8 @@ const updateAvatar = async (req, res) => {
   res.status(200).json({ avatarURL });
 };
 
+const verificationRequest= async (req, res) => {}
+
 // decoration
 const ctrl = {
   register: ctrlWrapper(register),
@@ -107,6 +115,7 @@ const ctrl = {
   getCurrent: ctrlWrapper(getCurrent),
   changeSubscription: ctrlWrapper(changeSubscription),
   updateAvatar: ctrlWrapper(updateAvatar),
+  verificationRequest: ctrlWrapper(verificationRequest)
 };
 
 //export

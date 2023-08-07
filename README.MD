@@ -48,6 +48,8 @@
 | **GET** | [/current](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path to current User Info | User Info |
 | **PATCH** | [/avatars](https://nodejs-restapi-g9eb.onrender.com/user/avatars) | Path to update User Avatar | Updated user Avatar |
 | **PATCH** | [/](https://nodejs-restapi-g9eb.onrender.com/user/current) | Path update Subscription | Updated user Info |
+| **GET** | [/verify/:verificationToken](https://nodejs-restapi-g9eb.onrender.com/user/verify/:verificationToken) | path to search user via token | message|
+| **POST** | [/verify](https://nodejs-restapi-g9eb.onrender.com/user/verify) | path to send Email Varification | message |
 
 ## Contact Example
 
