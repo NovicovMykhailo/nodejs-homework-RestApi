@@ -21,7 +21,7 @@
 
 # Basic Methods
 
-### Base URL &ensp; [[https://nodejs-restapi-g9eb.onrender.com/]](https://nodejs-restapi-g9eb.onrender.com/api/contacts)
+### Base URL &ensp; [[https://nodejs-restapi-g9eb.onrender.com/]](https://nodejs-restapi-g9eb.onrender.com/)
 
 #### for contacts `/api/contacts`
 
