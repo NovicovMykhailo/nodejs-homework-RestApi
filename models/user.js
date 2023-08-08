@@ -55,3 +55,7 @@ export const authSchema = Joi.object({
 export const subscriptionSchema = Joi.object({
   subscription: Joi.string().valid(...subscriptionList),
 });
+
+export const emailSchema = Joi.object({
+  email: Joi.string().pattern(emailRegExp).required(),
+})
